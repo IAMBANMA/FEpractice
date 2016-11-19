@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>js事件小练习</title>
+    <style>
+    .clicker {
+        position: absolute;
+        color: #000080;
+        font-size: 20px;
+        box-sizing: border-box;
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        background: #CCCCCC;
+        border: 2px solid #80FF00;
+    }
+    </style>
+    <script>
+    window.onload = function() {
+        var ele = document.getElementById('hehe');
+        ele.onmousedown = function(e) {
+            if (!e) e = window.event;
+            var cx = e.clientX;
+            var cy = e.clientY;
+            var sx = window.pageXOffset;
+            var sy = window.pageYOffset;
+            cx = cx + sx;
+            cy = cy + sy;
+            var clx = this.offsetLeft;
+            var cly = this.offsetTop;
+            var dx = cx - clx;
+            var dy = cy - cly;
+
+            function move(e) {
+                if (!e) e = window.event;
+                ele.style.left = (e.clientX + sx - dx) + "px";
+                ele.style.top = (e.clientY + sy - dy) + "px";
+                e.stopPropagation();
+            }
+
+            function up(e) {
+                if (!e) e = window.event;
+                document.removeEventListener("mousemove", move, true);
+                document.removeEventListener("mouseup", up, true);
+                e.stopPropagation();
+            }
+            document.addEventListener("mousemove", move, true);
+            document.addEventListener("mouseup", up, true);
+            e.preventDefault();
+            e.stopPropagation();
+
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <h2>鼠标事件,鼠标的拖动DEMO.(有别于鼠标的拖放事件)</h2>
+    <p class="clicker" id="hehe" draggable>点击我,可以移动.</p>
+</body>
+
+</html>

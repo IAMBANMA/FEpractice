@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>结构表现分离练习</title>
+    <link rel="stylesheet" href="">
+    <style>
+    div {
+        width: 600px;
+        position: relative;
+        margin-left: 150px;
+        background: #99CCCC;
+    }
+    
+    div img {
+        float: left;
+        margin-left: -150px;
+    }
+    
+    div p {
+        font-size: 16px;
+        line-height: 1.5em;
+    }
+    
+    div span {
+        font-size: 14px;
+        color: #666666;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    
+    strong {
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 0.9em;
+        color: #CC3366;
+    }
+    </style>
+    <script src="../jquery练习/js/jquery.js"></script>
+    <script>
+    $(function() {
+        alert("jquery引入成功!(路径)");
+        $("strong").click(function() {
+            var ele = $("div").clone(true);
+            ele.appendTo($("body"));
+        })
+
+
+    })
+    </script>
+</head>
+
+<body>
+    <div>
+        <img src="http://a.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=a84492ae2ef5e0fefa1581533d095fcd/cefc1e178a82b90112cb5e84708da9773912ef27.jpg" alt="小屁孩" width="120px" height="100px">
+        <h4>结构与表现相分离</h4>
+        <p>深入理解web的结构与表现相分离的思想:书写html时,考虑语义(一方面是重要内容和次要内容的顺序)和结构,尽量不涉及代替css的表现样式,样式的事情留给css,让他们尽量解耦和.
+            <br><strong>点击此处复制元素并插入到下面(复制并没有复制事件处理程序和元素关联的数据,除非给clone方法传递true参数)</strong>
+        </p>
+        <span>10分钟前</span>
+    </div>
+</body>
+
+</html>

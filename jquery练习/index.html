@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jquery练习</title>
+    <link rel="stylesheet" href="">
+    <script src="./js/jquery.js"></script>
+    <script>
+    $(function() {
+        $("button").click(function() {
+            $("[value='hello']").detach();
+
+        })
+
+        $(":input").change(function(event) {
+            if ($(this).val() !== "world ") {
+                alert("修改了表单内容!");
+            }
+        })
+        
+    })
+    </script>
+    <style>
+    body {
+        margin: 0px;
+    }
+    
+    .content {
+        color: #66FF33;
+    }
+    
+    #content {
+        position: relative;
+    }
+    
+    #content p {
+        background: #CC99FF;
+    }
+    
+    h2 {
+        margin: 0px;
+        text-align: center;
+        color: #666666;
+    }
+    
+    #container {
+        margin: 20px;
+        /*         position: relative;
+ */
+    }
+    
+    #normal {
+        background: #CCCCFF;
+        width: 300px;
+        height: 200px;
+        border: 2px solid #333333;
+        margin: 5px;
+        padding: 5px;
+        overflow: auto;
+    }
+    
+    ul {
+        position: absolute;
+        background: #CCCCCC;
+        list-style-type: none;
+        padding: 10px;
+        margin: 0px;
+        display: none;
+    }
+    .pao{
+        height: 400px;
+        background-color: #FFCC66;
+    }
+    .one{
+        float: left;
+        background: #99FF99;
+        width: 250px;
+        height: 250px;
+        margin: 50px;
+    }
+    .two{
+        width: 250px;
+        height: 250px;
+        background: #33CCCC;
+        float: right;
+        margin: 50px
+
+    }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <h2>jquery练习</h2>
+        </div>
+        <span>列表</span>
+        <ul>
+            <li>hello world</li>
+            <li>i am xiaoma</li>
+            <li>i love you</li>
+            <li>i am an ugly girl</li>
+            <li>are you ok</li>
+        </ul>
+        <div id="content">
+            <p>百度CDN公共库 是稳定，快速，全面，开源的国内CDN加速服务。 稳定，快速由百度遍布全国各地100+个CDN节点提供加速服务。让开源库享受与百度首页静态资源同等待遇。 全面，开源收录超过180+开源库，并且这个数字正在不断增加。百度静态资源公共库服务不仅在Github开源库上接受任何人的提交请求，同时实时同步国外如CDNJS上优秀的开源库。 百度在之前推出了CDN公共库，同时最近google的公共库经常性的出现无法访问的问题，所以对自己站点的公共库文件进行了更新了。
+            </p>
+        </div>
+        <div class="pao" id="pao">
+            <div class="one" id="one" >我是子孙一</div>
+            <div class="two" id="two" >我是子孙二</div>
+        </div>
+        <div>
+            <p id="normal">helloworld!</p>
+            <input type="text" value="hello">
+            <input type="text" value="world">
+            <button>点击我移除表单</button>
+        </div>
+        <div id="footer">
+            <span>版权所有@小马哥</span>
+        </div>
+    </div>
+</body>
+
+</html>

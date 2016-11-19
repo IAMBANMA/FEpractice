@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>到底是谁触发了事件</title>
+    <link rel="stylesheet" href="">
+    <style>
+    html,
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    div {
+        margin: 50px;
+        background: #FF6FCF;
+        box-sizing: border-box;
+        width: 300px;
+        height: 300px;
+        padding: 0px;
+        border: 1px solid #666666;
+    }
+    
+    p {
+        box-sizing: border-box;
+        margin: 100px;
+        padding: 0px;
+        width: 100px;
+        height: 100px;
+        background: #6666FF;
+    }
+    </style>
+    <script>
+    window.onload = function() {
+        var dele = document.getElementsByTagName("div")[0];
+        var pele = document.getElementsByTagName("p")[0];
+        dele.onclick = function(e) {
+            if (e.target === dele) {
+                alert("容器触发了事件,事件对象e的事件目标属性值是容器元素.e.target的返回值是"+e.target);
+            } else {
+                alert("内嵌元素触发了事件,事件对象e的事件目标属性值是子元素.e.target的返回值是"+e.target);
+            }
+        }
+
+    }
+    </script>
+</head>
+
+<body>
+    <h2>谁触发了事件?</h2>
+    <span>此demo,是在容器元素上注册了监听事件,然后,分别在容器元素和容器元素的子元素上点击触发事件,查看事件对象的事件目标属性值分别是什么?</span>
+    <div>我是容器.
+        <p>我是内胆.</p>
+    </div>
+</body>
+<!-- 
+href属性链接资源.
+<a href=""></a>
+<link rel="stylesheet" href="">
+src属性链接资源.
+<img src="" alt="">
+<script src=""></script>
+<iframe src="" frameborder="0"></iframe> -->
+</html>

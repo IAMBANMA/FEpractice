@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ajax练习demo</title>
+	<link rel="stylesheet" href="">
+	<script>
+	window.onload=function(){
+		var xhr=new XMLHttpRequest();
+		var ele=document.getElementsByTagName('p')[0];
+		xhr.open("GET","http://127.0.0.1:8000/");
+		// xhr.setRequestHeader("Access-Control-Allow-Origin":"*")
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200)
+			{
+				var text=xhr.responseText;
+				alert(text);
+				setTimeout(function(){ele.innerHTML=text;}, 5000);
+			}
+		}
+		xhr.send();
+
+	}
+	</script>
+</head>
+<body>
+	<p>我是初始的文本,几秒后,我会从服务器更新文本!</p>
+</body>
+</html>
