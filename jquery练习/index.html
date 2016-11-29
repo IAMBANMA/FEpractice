@@ -9,17 +9,22 @@
     <script src="./js/jquery.js"></script>
     <script>
     $(function() {
-        $("button").click(function() {
-            $("[value='hello']").detach();
+        $("button").one("click", function() {
+            $("[value=hello]").detach();
 
         })
 
-        $(":input").change(function(event) {
+        $(":input").bind("change", function(event) {
             if ($(this).val() !== "world ") {
                 alert("修改了表单内容!");
             }
+
+
         })
-        
+
+        var ele1 = $('#content');
+        var ele2 = $('#contnet p')[0];
+        console.log($.contains(ele2, ele1));
     })
     </script>
     <style>
@@ -69,24 +74,26 @@
         margin: 0px;
         display: none;
     }
-    .pao{
+    
+    .pao {
         height: 400px;
         background-color: #FFCC66;
     }
-    .one{
+    
+    .one {
         float: left;
         background: #99FF99;
         width: 250px;
         height: 250px;
         margin: 50px;
     }
-    .two{
+    
+    .two {
         width: 250px;
         height: 250px;
         background: #33CCCC;
         float: right;
         margin: 50px
-
     }
     </style>
 </head>
@@ -104,13 +111,15 @@
             <li>i am an ugly girl</li>
             <li>are you ok</li>
         </ul>
+        <iframe src="#" frameborder="0" id="ifra">hello world</iframe>
         <div id="content">
             <p>百度CDN公共库 是稳定，快速，全面，开源的国内CDN加速服务。 稳定，快速由百度遍布全国各地100+个CDN节点提供加速服务。让开源库享受与百度首页静态资源同等待遇。 全面，开源收录超过180+开源库，并且这个数字正在不断增加。百度静态资源公共库服务不仅在Github开源库上接受任何人的提交请求，同时实时同步国外如CDNJS上优秀的开源库。 百度在之前推出了CDN公共库，同时最近google的公共库经常性的出现无法访问的问题，所以对自己站点的公共库文件进行了更新了。
+                <a href="#" id="lianjie">链接</a>
             </p>
         </div>
         <div class="pao" id="pao">
-            <div class="one" id="one" >我是子孙一</div>
-            <div class="two" id="two" >我是子孙二</div>
+            <div class="one" id="one">我是子孙一</div>
+            <div class="two" id="two">我是子孙二</div>
         </div>
         <div>
             <p id="normal">helloworld!</p>
